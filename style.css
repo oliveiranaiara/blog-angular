@@ -1,0 +1,83 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #f3f0e6;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Cabeçalho */
+.top {
+  background: #6b4226;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top h1, .top h2 {
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Imagem de Ada no cabeçalho */
+.ada-header {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+/* Estilizando os posts */
+ul.grid {
+  list-style: none;
+  padding: 0;
+}
+
+.post-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin: 10px auto;
+  padding: 15px;
+  width: 50%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem de Ada ao lado dos posts */
+.ada-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.post-content {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.img-thumbnail {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+form input, form textarea {
+  width: 90%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #6b4226;
+  border-radius: 5px;
+}
+
+button {
+  background: #6b4226;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}

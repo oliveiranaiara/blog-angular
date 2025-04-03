@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de Ada Lovelace</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="blogApp">
+
+    <div ng-controller="BlogController as blog">
+        <header class="top">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Ada_Lovelace_portrait.jpg/300px-Ada_Lovelace_portrait.jpg" class="ada-header">
+            <h1 ng-click="blog.selectTab('blog')">🖋 Diário de Ada Lovelace</h1>
+            <h2 ng-click="blog.selectTab('new')">➕ Novo Diário</h2>
+        </header>
+
+        <div class="content">
+            <!-- Listagem de posts -->
+            <ul class="grid" ng-show="blog.isSelected('blog')">
+                <li ng-repeat="post in blog.posts">
+                    <div class="post-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg" class="ada-img">
+                        <div class="post-content">
+                            <h3>📜 {{ post.title }}</h3>
+                            <p>{{ post.body[0] | limitTo:100 }}...</p>
+                            <img ng-src="{{ post.image }}" class="img-thumbnail" />
+                            <p>🗓 {{ post.createdOn | date:'dd/MM/yyyy' }} | 💬 {{ post.comments.length }} | ❤️ {{ post.likes }}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Formulário para novo post -->
+            <div class="post" ng-show="blog.isSelected('new')">
+                <h2>Escrever Novo Diário</h2>
+                <form ng-submit="blog.addPost()">
+                    <input type="text" ng-model="blog.post.title" placeholder="Título da anotação" required>
+                    <textarea ng-model="blog.post.body" placeholder="O que descobriu hoje, Ada?" required></textarea>
+                    <input type="text" ng-model="blog.post.image" placeholder="URL de uma imagem">
+                    <input type="text" ng-model="blog.post.author" value="Ada Lovelace" readonly>
+                    <button type="submit">Publicar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
